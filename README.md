@@ -2,6 +2,8 @@
 This repository contains Kaldi recipes on the LibriSpeech corpora to execute the fMLLR feature extraction process.
 Once [Kaldi](http://kaldi-asr.org/doc/install.html) is installed, replace the files under `$KALDI_ROOT/egs/librispeech/s5/` with the files in the repository (especially [`run.sh`](run.sh) and [`cmd.sh`](cmd.sh)).
 
+These code and procedures are also publised on the [fMLLR wiki page](https://en.wikipedia.org/wiki/FMLLR). Feel free to use or modify them, any bug report or improvement suggestion will be appreciated. If you have any questions, please contact r07942089@ntu.edu.tw.
+
 ## Prerequisite
 ### Setup Kaldi
 - Install [Kaldi](http://kaldi-asr.org/doc/install.html)
@@ -41,7 +43,7 @@ export mkgraph_cmd="run.pl --mem 8G"
 data=/media/andi611/1TBSSD
 ```
 
-3. Run the Kaldi recipe `run.sh` for librispeech at least until Stage 13 (included), make sure that `flac` is installed if you are using a Linux machine:
+3. Run the Kaldi recipe `run.sh` for LibriSpeech at least until Stage 13 (included), make sure that `flac` is installed if you are using a Linux machine:
 ```
 ./run.sh # Use the `run.sh` from this repo
 sudo apt-get install flac
@@ -67,7 +69,7 @@ steps/align_fmllr.sh --nj 30 data/train_clean_360 data/lang exp/tri4b exp/tri4b_
 ```bash
 ./dump_fmllr_cmvn.sh
 ```
-8. Use the python script to convert kaldi generated .ark featrues to .npy for our dataloader, run the python script:
+8. Use the python script to convert kaldi generated .ark featrues to .npy for your own dataloader, an example python script is provided:
 ```bash
 python3 ark2libri.py
 ```
